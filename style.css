@@ -1,0 +1,722 @@
+:root {
+    --green: #315c43;
+    --dark-green: #203f2e;
+    --pink: #e8b7b8;
+    --cream: #f8f1df;
+    --yellow: #e8d28a;
+    --brown: #765744;
+    --dark: #25251f;
+    --paper: #fffaf0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--dark);
+    font-family: "DM Sans", sans-serif;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    font-family: inherit;
+}
+
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: var(--green);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+#intro.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.intro-content {
+    padding: 30px;
+}
+
+.tiny {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+#intro h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(60px, 18vw, 130px);
+    margin: 15px 0;
+    font-weight: 400;
+}
+
+.intro-line {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.date {
+    margin: 35px 0;
+    letter-spacing: 4px;
+}
+
+#intro button {
+    border: 1px solid var(--cream);
+    background: transparent;
+    color: var(--cream);
+    padding: 14px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+#main-content {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+#main-content.visible {
+    opacity: 1;
+}
+
+.top {
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(37, 37, 31, 0.15);
+}
+
+.archive-label,
+.chapter-number {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.chapter-number {
+    color: var(--green);
+    margin-top: 4px;
+}
+
+.tiny-date {
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.hero {
+    min-height: 85vh;
+    padding: 80px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(232,183,184,.55) 0 7%, transparent 7.5%),
+        radial-gradient(circle at 85% 75%, rgba(232,210,138,.6) 0 8%, transparent 8.5%);
+}
+
+.handwritten {
+    font-family: "Caveat", cursive;
+    font-size: 25px;
+    color: var(--brown);
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: clamp(70px, 22vw, 150px);
+    line-height: .85;
+    margin: 20px 0 30px;
+}
+
+.hero h1 i {
+    color: var(--green);
+}
+
+.hero-subtitle {
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.hero-date {
+    margin-top: 50px;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+section.story,
+section.things,
+section.similarities,
+section.plot-twist,
+section.almost-goodbye,
+section.destiny,
+section.meeting,
+section.ending {
+    max-width: 720px;
+    margin: auto;
+    padding: 100px 25px;
+}
+
+.section-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.story h2,
+.things h2,
+.similarities h2,
+.plot-twist h2,
+.almost-goodbye h2,
+.destiny h2,
+.meeting h2,
+.ending h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: clamp(40px, 10vw, 70px);
+    line-height: 1;
+    margin-bottom: 45px;
+}
+
+.story h2 i,
+.things h2 i,
+.similarities h2 i,
+.plot-twist h2 i,
+.destiny h2 i,
+.meeting h2 i {
+    color: var(--green);
+}
+
+.story p,
+.plot-twist p,
+.almost-goodbye p,
+.destiny p,
+.meeting p {
+    font-size: 16px;
+    line-height: 1.9;
+    margin: 25px 0;
+}
+
+.photo-section {
+    padding: 40px 25px 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.polaroid {
+    background: white;
+    padding: 12px 12px 45px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    max-width: 330px;
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+}
+
+.rotate-left {
+    transform: rotate(-3deg);
+}
+
+.rotate-right {
+    transform: rotate(3deg);
+}
+
+.polaroid-caption {
+    font-family: "Caveat", cursive;
+    font-size: 20px;
+    text-align: center;
+    margin: 12px 0 -25px;
+    color: var(--brown);
+}
+
+.hinge-card {
+    max-width: 450px;
+    margin: 30px auto 100px;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,.1);
+}
+
+.hinge-top {
+    background: #e85b72;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.hinge-message {
+    padding: 30px;
+}
+
+.hinge-message p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.little-note {
+    background: var(--yellow);
+    padding: 22px;
+    transform: rotate(-2deg);
+    margin: 40px 0;
+}
+
+.little-note span {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.little-note strong {
+    display: block;
+    margin-top: 8px;
+    font-family: "Caveat", cursive;
+    font-size: 30px;
+}
+
+.first-message {
+    padding: 100px 25px;
+    text-align: center;
+    background: var(--pink);
+}
+
+.message-bubble {
+    max-width: 400px;
+    margin: 35px auto;
+    padding: 22px;
+    background: white;
+    border-radius: 22px 22px 5px 22px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.reaction {
+    font-family: "Caveat", cursive;
+    font-size: 23px;
+}
+
+.first-message h2 {
+    font-family: "Playfair Display", serif;
+    color: var(--green);
+    font-size: 65px;
+    margin: 10px;
+}
+
+.things {
+    text-align: center;
+}
+
+.things-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 40px 0;
+}
+
+.things-grid div {
+    background: white;
+    padding: 25px 10px;
+    font-family: "Caveat", cursive;
+    font-size: 25px;
+    transform: rotate(-1deg);
+}
+
+.things-grid div:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+.small-story {
+    line-height: 1.8;
+}
+
+.note-section {
+    padding: 80px 25px;
+}
+
+.paper-note {
+    max-width: 600px;
+    margin: auto;
+    padding: 45px 35px;
+    background: #fffdf5;
+    box-shadow: 0 12px 35px rgba(0,0,0,.1);
+    transform: rotate(-1deg);
+}
+
+.paper-note p {
+    line-height: 1.8;
+}
+
+.big {
+    font-size: 35px;
+}
+
+.similarity-list {
+    border-top: 1px solid rgba(0,0,0,.2);
+}
+
+.similarity-list div {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    line-height: 1.6;
+}
+
+.similarity-list span {
+    color: var(--green);
+    font-size: 10px;
+    margin-right: 15px;
+}
+
+.quote-box {
+    margin-top: 50px;
+    padding: 35px;
+    background: var(--green);
+    color: var(--cream);
+    text-align: center;
+}
+
+.quote-box p {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+.quote-box span {
+    font-family: "Caveat", cursive;
+    font-size: 20px;
+}
+
+.big-feeling {
+    background: var(--dark-green);
+    color: var(--cream);
+    padding: 120px 25px;
+    text-align: center;
+}
+
+.big-feeling h2 {
+    max-width: 800px;
+    margin: 30px auto;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: clamp(35px, 8vw, 65px);
+    line-height: 1.25;
+}
+
+.plot-twist {
+    position: relative;
+}
+
+.twist-stamp {
+    position: absolute;
+    right: 20px;
+    top: 80px;
+    border: 2px solid var(--brown);
+    color: var(--brown);
+    padding: 10px;
+    text-align: center;
+    transform: rotate(8deg);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.dialogue {
+    margin: 40px 0;
+    padding: 25px;
+    border-left: 4px solid var(--green);
+    background: rgba(255,255,255,.5);
+    font-family: "Caveat", cursive;
+    font-size: 27px;
+}
+
+.almost-goodbye {
+    background: #e9d4ca;
+}
+
+.goodbye-note {
+    background: var(--paper);
+    padding: 35px;
+    margin: 45px 0;
+    transform: rotate(1deg);
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.goodbye-note span {
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.goodbye-note p {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+}
+
+.destiny {
+    text-align: center;
+    background: var(--green);
+    color: var(--cream);
+    max-width: none !important;
+}
+
+.destiny .section-label {
+    color: var(--yellow);
+}
+
+.destiny h2 i {
+    color: var(--pink);
+}
+
+.infinity {
+    font-family: "Playfair Display", serif;
+    font-size: 90px;
+    opacity: .5;
+}
+
+.destiny .handwritten {
+    color: var(--yellow);
+}
+
+.meeting {
+    text-align: center;
+}
+
+.location-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 22px;
+    background: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+    margin: 20px 0 40px;
+    text-align: left;
+}
+
+.location-card small {
+    display: block;
+    margin-top: 3px;
+    color: var(--brown);
+}
+
+.huge {
+    font-size: 55px;
+    color: var(--green);
+}
+
+.nutties {
+    padding: 100px 25px;
+    background: var(--yellow);
+}
+
+.chocolate-card {
+    max-width: 550px;
+    margin: auto;
+    padding: 50px 30px;
+    text-align: center;
+    background: #fffdf5;
+    box-shadow: 0 15px 40px rgba(0,0,0,.1);
+    transform: rotate(-1deg);
+}
+
+.chocolate-card h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.chocolate-card h2 i {
+    color: var(--green);
+}
+
+.chocolate-card button {
+    background: var(--green);
+    color: white;
+    border: 0;
+    padding: 14px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.hidden-message {
+    display: none;
+    margin-top: 30px;
+    font-family: "Caveat", cursive;
+    font-size: 25px;
+}
+
+.hidden-message.show {
+    display: block;
+}
+
+.classified {
+    padding: 110px 25px;
+    background: #d9dfd5;
+}
+
+.classified-card {
+    max-width: 550px;
+    margin: auto;
+    border: 1px dashed var(--green);
+    padding: 50px 30px;
+    text-align: center;
+}
+
+.lock {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.classified-card h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 1.35;
+}
+
+.classified-line {
+    border-top: 1px dashed var(--green);
+    margin: 35px 0;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 7px 12px;
+    background: var(--pink);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.ending {
+    text-align: center;
+}
+
+.ending h2 {
+    color: var(--green);
+}
+
+.ending-text {
+    margin: 50px 0;
+}
+
+.ending-text p {
+    margin: 20px 0;
+}
+
+.final-line {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 24px;
+}
+
+.signature {
+    font-family: "Caveat", cursive;
+    font-size: 32px;
+    color: var(--green);
+}
+
+.next-chapter {
+    text-align: center;
+    padding: 100px 25px;
+    background: var(--pink);
+}
+
+.next-chapter h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 55px;
+    font-weight: 400;
+    margin: 20px 0 5px;
+}
+
+.next-chapter p:not(.tiny) {
+    font-family: "Caveat", cursive;
+    font-size: 25px;
+}
+
+.arrow {
+    margin-top: 40px;
+    font-size: 25px;
+}
+
+footer {
+    padding: 50px 25px;
+    text-align: center;
+    background: var(--dark-green);
+    color: var(--cream);
+}
+
+footer p {
+    letter-spacing: 3px;
+    font-size: 10px;
+}
+
+footer span {
+    font-family: "Caveat", cursive;
+    font-size: 22px;
+}
+
+footer div {
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (min-width: 700px) {
+
+    .top {
+        padding: 25px 50px;
+    }
+
+    section.story,
+    section.things,
+    section.similarities,
+    section.plot-twist,
+    section.almost-goodbye,
+    section.destiny,
+    section.meeting,
+    section.ending {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .things-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
