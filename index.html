@@ -6,73 +6,50 @@
 
     <title>Aaykhus — Chapter 01</title>
 
-    <meta name="description" content="Aaykhus Archives — Chapter 01: The Match">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- =========================
-         INTRO SCREEN
-    ========================== -->
+    <!-- INTRO SCREEN -->
 
-    <section class="intro-screen" id="intro">
+    <div id="intro">
+        <div class="intro-content">
+            <p class="tiny">AN ARCHIVE OF</p>
 
-        <div class="intro-paper">
+            <h1>AAYKHUS</h1>
 
-            <div class="tiny-label">
-                THE AAYKHUS ARCHIVES
-            </div>
-
-            <h1>
-                Before there was<br>
-                <span>Aaykhus.</span>
-            </h1>
-
-            <p class="intro-subtitle">
+            <p class="intro-line">
+                Before there was Aaykhus.<br>
                 There was just a match.
             </p>
 
-            <div class="date-stamp">
-                24 · 06 · 26
-            </div>
+            <p class="date">24 · 06 · 26</p>
 
-            <button class="begin-btn" onclick="beginStory()">
+            <button onclick="openArchive()">
                 Open Chapter 01 →
             </button>
-
-            <p class="tiny-note">
-                turn the page slowly
-            </p>
-
         </div>
+    </div>
 
-    </section>
 
-
-    <!-- =========================
-         MAIN WEBSITE
-    ========================== -->
+    <!-- MAIN WEBSITE -->
 
     <main id="main-content">
 
         <!-- HEADER -->
 
-        <header class="site-header">
+        <header class="top">
 
-            <div class="archive-logo">
-                <span class="logo-a">A</span>
-                <span>AYKHUS</span>
+            <div>
+                <span class="archive-label">AAYKHUS ARCHIVES</span>
+                <span class="chapter-number">CHAPTER 01</span>
             </div>
 
-            <div class="chapter-number">
-                CHAPTER 01
+            <div class="tiny-date">
+                24.06.26 — 27.06.26
             </div>
 
         </header>
@@ -80,76 +57,88 @@
 
         <!-- HERO -->
 
-        <section class="hero section">
+        <section class="hero">
 
-            <div class="hero-content">
+            <p class="handwritten">the beginning of something</p>
 
-                <div class="eyebrow">
-                    24.06.26 — 27.06.26
-                </div>
+            <h1>
+                The<br>
+                <i>Match.</i>
+            </h1>
 
-                <h1>
-                    The<br>
-                    <em>Match.</em>
-                </h1>
+            <p class="hero-subtitle">
+                Before there was an us,<br>
+                there was Hinge.
+            </p>
 
-                <p class="hero-description">
-                    Before there was an us,<br>
-                    there was Hinge.
+            <div class="hero-date">
+                24 JUNE 2026
+            </div>
+
+        </section>
+
+
+        <!-- OPENING STORY -->
+
+        <section class="story reveal">
+
+            <p class="section-label">01 — THE BEGINNING</p>
+
+            <h2>
+                Before there was Aaykhus,<br>
+                there was Hinge.
+            </h2>
+
+            <p>
+                I was just sitting there, swiping through Hinge like I normally would,
+                when I came across your profile.
+            </p>
+
+            <p>
+                And honestly?
+                I wasn't immediately sure if I should match with you.
+            </p>
+
+            <p>
+                Then I saw the message you had left on one of my photos.
+            </p>
+
+        </section>
+
+
+        <!-- HINGE SCREENSHOT 1 -->
+
+        <section class="photo-section reveal">
+
+            <div class="polaroid rotate-left">
+
+                <img src="images/hinge-1.jpg" alt="Our first Hinge conversation">
+
+                <p class="polaroid-caption">
+                    and this is where it started...
                 </p>
-
-                <div class="scroll-hint">
-                    ↓ scroll to remember
-                </div>
 
             </div>
 
-            <div class="hero-doodle">
-                <span>Jerry</span>
+        </section>
+
+
+        <!-- HINGE MESSAGE -->
+
+        <section class="hinge-card reveal">
+
+            <div class="hinge-top">
+                <span>HINGE</span>
                 <span>♡</span>
-                <span>Tom</span>
             </div>
 
-        </section>
-
-
-        <!-- =========================
-             SECTION 01
-        ========================== -->
-
-        <section class="story-section cream">
-
-            <div class="section-number">
-                01
-            </div>
-
-            <div class="story-card">
-
-                <p class="handwritten">
-                    It started very normally.
-                </p>
-
-                <h2>
-                    I was just<br>
-                    <em>swiping.</em>
-                </h2>
+            <div class="hinge-message">
 
                 <p>
-                    I opened Hinge and was doing what one normally does
-                    on Hinge — swiping through profiles, not really knowing
-                    what I was looking for.
-                </p>
-
-                <p>
-                    And then I came across <strong>your profile.</strong>
-                </p>
-
-                <p>
-                    And honestly?
-                </p>
-
-                <p class="highlight">
-                    I wasn't immediately sure if I should match with you.
+                    “If ur a marwari or a gujarati and ur dating intentions are
+                    purely long term or something more than that then lets match
+                    and figure our way out just want to settle early in life with
+                    a great partner.”
                 </p>
 
             </div>
@@ -157,383 +146,114 @@
         </section>
 
 
-        <!-- =========================
-             HINGE CARD
-        ========================== -->
+        <!-- BEST FRIEND -->
 
-        <section class="hinge-section">
+        <section class="story reveal">
 
-            <div class="hinge-phone">
+            <p class="section-label">THE DECISION</p>
 
-                <div class="phone-top">
-                    <span>9:41</span>
-                    <span>♡</span>
-                </div>
+            <p>
+                And that made me curious.
+            </p>
 
-                <div class="profile-area">
+            <p>
+                I wanted to know if you were actually Marwari.
+                So, naturally, I called my best friend.
+            </p>
 
-                    <div class="fake-profile-photo">
-                        <span>your<br>profile<br>here ♡</span>
-                    </div>
-
-                    <div class="profile-info">
-
-                        <h3>
-                            Aayushu
-                        </h3>
-
-                        <p>
-                            looking for something real.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="hinge-prompt">
-
-                    <div class="prompt-label">
-                        HIS MESSAGE ON MY PHOTO
-                    </div>
-
-                    <p>
-                        “If ur a marwari or a gujarati and ur dating
-                        intentions are purely long term or something more
-                        than that then lets match and figure our way out
-                        just want to settle early in life with a great partner.”
-                    </p>
-
-                </div>
-
-                <div class="hinge-actions">
-                    <button>×</button>
-                    <button class="match-heart">♡</button>
-                    <button>→</button>
-                </div>
-
+            <div class="little-note">
+                <span>bestie:</span>
+                <strong>“MATCH WITH HIM.”</strong>
             </div>
 
-            <div class="hinge-caption">
-
-                <span class="scribble">
-                    okay... interesting.
-                </span>
-
-                <p>
-                    The message caught my attention.
-                </p>
-
-                <p>
-                    Mostly because I thought it would be fun to find out
-                    if you were actually Marwari.
-                </p>
-
-                <p class="small-text">
-                    plot twist: you were not.
-                </p>
-
-            </div>
+            <p>
+                So I did.
+            </p>
 
         </section>
 
 
-        <!-- =========================
-             BEST FRIEND
-        ========================== -->
+        <!-- FIRST MESSAGE -->
 
-        <section class="story-section green">
+        <section class="first-message reveal">
 
-            <div class="bestie-card">
+            <p class="tiny">AND THEN...</p>
 
-                <div class="sticker">
-                    EMERGENCY BESTIE CONSULTATION
-                </div>
-
-                <h2>
-                    So naturally...
-                </h2>
-
-                <p class="big-hand">
-                    I called my best friend.
-                </p>
-
-                <p>
-                    I showed her your profile.
-                    Asked her what I should do.
-                    Explained the situation like this was a
-                    very serious life decision.
-                </p>
-
-                <div class="bestie-message">
-                    <span>BESTIE:</span>
-                    “Match with him.”
-                </div>
-
-                <p class="handwritten white">
-                    So I did.
-                </p>
-
+            <div class="message-bubble">
+                Hi 🥹 I am glad we matched!
             </div>
+
+            <p class="reaction">
+                And I was internally like...
+            </p>
+
+            <h2>
+                OMG!!
+            </h2>
 
         </section>
 
 
-        <!-- =========================
-             FIRST MESSAGE
-        ========================== -->
+        <!-- THINGS I NOTICED -->
 
-        <section class="conversation-section">
+        <section class="things reveal">
 
-            <div class="conversation-heading">
+            <p class="section-label">THINGS I NOTICED</p>
 
-                <div class="section-number">
-                    02
-                </div>
+            <h2>
+                You were<br>
+                <i>interesting.</i>
+            </h2>
 
-                <p class="eyebrow">
-                    AND THEN...
-                </p>
+            <div class="things-grid">
 
-                <h2>
-                    You messaged.
-                </h2>
-
-            </div>
-
-            <div class="chat-window">
-
-                <div class="chat-time">
-                    HINGE · 24 JUNE 2026
-                </div>
-
-                <div class="bubble him">
-                    Hi 🥹 I am glad we matched!
-                </div>
-
-                <div class="reaction">
-                    OMG!!
-                </div>
-
-                <div class="bubble her">
-                    <span class="typing">...</span>
-                </div>
-
-                <div class="bubble-story">
-
-                    <p>
-                        And somehow, that tiny little message
-                        started something I didn't know I wanted.
-                    </p>
-
-                    <p>
-                        Because the more we talked,
-                        the more I realised there was something
-                        about you that kept pulling me in.
-                    </p>
-
-                </div>
+                <div>Funny.</div>
+                <div>Flirty.</div>
+                <div>Caring.</div>
+                <div>Curious.</div>
+                <div>Good English.</div>
+                <div>Cute.</div>
 
             </div>
+
+            <p class="small-story">
+                You knew how to talk.
+                You knew how to flirt.
+                You asked questions that made me feel like you actually
+                wanted to know me.
+            </p>
 
         </section>
 
 
-        <!-- =========================
-             THINGS I NOTICED
-        ========================== -->
+        <!-- FOOD STORY -->
 
-        <section class="noticed-section">
+        <section class="note-section reveal">
 
-            <div class="section-number">
-                03
-            </div>
+            <div class="paper-note">
 
-            <div class="noticed-heading">
-
-                <p class="eyebrow">
-                    THINGS I NOTICED
-                </p>
-
-                <h2>
-                    You knew<br>
-                    <em>how to talk.</em>
-                </h2>
-
-            </div>
-
-            <div class="noticed-grid">
-
-                <div class="noticed-card rotate-left">
-                    <span class="number">01</span>
-                    <h3>You were funny.</h3>
-                    <p>
-                        Actually funny. Not just “haha” funny.
-                    </p>
-                </div>
-
-                <div class="noticed-card rotate-right">
-                    <span class="number">02</span>
-                    <h3>You knew how to flirt.</h3>
-                    <p>
-                        And unfortunately, I noticed.
-                    </p>
-                </div>
-
-                <div class="noticed-card rotate-left">
-                    <span class="number">03</span>
-                    <h3>Your English.</h3>
-                    <p>
-                        Yes. I noticed your English.
-                    </p>
-                </div>
-
-                <div class="noticed-card rotate-right">
-                    <span class="number">04</span>
-                    <h3>You were curious.</h3>
-                    <p>
-                        You asked me things.
-                        You actually wanted to know me.
-                    </p>
-                </div>
-
-                <div class="noticed-card rotate-left">
-                    <span class="number">05</span>
-                    <h3>You were cute.</h3>
-                    <p>
-                        This one was a problem.
-                    </p>
-                </div>
-
-                <div class="noticed-card rotate-right">
-                    <span class="number">06</span>
-                    <h3>You were caring.</h3>
-                    <p>
-                        And this one was worse.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             FOOD STORY
-        ========================== -->
-
-        <section class="food-section">
-
-            <div class="food-note">
-
-                <div class="tape"></div>
-
-                <p class="handwritten">
-                    one tiny thing I remember
-                </p>
-
-                <h2>
+                <p class="handwritten big">
                     “Eat properly.”
-                </h2>
-
-                <p>
-                    I told you I was eating while we were talking.
                 </p>
 
                 <p>
-                    You made sure I wasn't using my phone while eating.
+                    I remember telling you I was eating while we were talking.
+                    And instead of just continuing the conversation,
+                    you actually made sure I wasn't using my phone while eating.
                 </p>
 
                 <p>
                     You told me to eat properly.
-                    And then you went to sleep.
-                </p>
-
-                <p class="sad-line">
-                    I was very sad about this.
-                </p>
-
-                <p>
-                    Then you woke up in the middle of the night
-                    and we continued talking.
-                </p>
-
-                <div class="tiny-heart">
-                    ♡
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             SIMILARITIES
-        ========================== -->
-
-        <section class="similarities-section">
-
-            <div class="section-number">
-                04
-            </div>
-
-            <p class="eyebrow">
-                THE MORE WE TALKED...
-            </p>
-
-            <h2>
-                Why did we keep<br>
-                <em>being so similar?</em>
-            </h2>
-
-            <div class="similarity-cloud">
-
-                <div class="similarity-card">
-                    BOARDING SCHOOL
-                </div>
-
-                <div class="similarity-card">
-                    PUNE
-                </div>
-
-                <div class="similarity-card big">
-                    CHAI ♡
-                </div>
-
-                <div class="similarity-card">
-                    SPICY FOOD
-                </div>
-
-                <div class="similarity-card">
-                    SPORTS
-                </div>
-
-                <div class="similarity-card big">
-                    SAME BRAIN?
-                </div>
-
-            </div>
-
-            <div class="similarity-letter">
-
-                <p>
-                    We thought in the same way.
-                </p>
-
-                <p>
-                    I guessed what you were going to say.
-                    More than once.
-                </p>
-
-                <p>
-                    We had both gone to boarding school.
-                    We had both spent quite a lot of time in Pune.
-                    We were both chai people.
-                    We both liked spicy food.
-                    We had both been into sports in school.
+                    Then you went to sleep.
                 </p>
 
                 <p class="handwritten">
-                    It was getting a little ridiculous.
+                    I was very sad about that.
+                </p>
+
+                <p>
+                    And then you woke up in the middle of the night
+                    and we continued talking.
                 </p>
 
             </div>
@@ -541,421 +261,349 @@
         </section>
 
 
-        <!-- =========================
-             BIG QUOTE
-        ========================== -->
+        <!-- HINGE SCREENSHOT 2 -->
 
-        <section class="quote-section">
+        <section class="photo-section second-photo reveal">
 
-            <div class="quote-mark">
-                “
+            <div class="polaroid rotate-right">
+
+                <img src="images/hinge-2.jpg" alt="Another Hinge conversation">
+
+                <p class="polaroid-caption">
+                    little pieces of the conversation
+                </p>
+
             </div>
 
-            <blockquote>
+        </section>
+
+
+        <!-- SIMILARITIES -->
+
+        <section class="similarities reveal">
+
+            <p class="section-label">AND THEN I STARTED NOTICING...</p>
+
+            <h2>
+                We were<br>
+                <i>weirdly similar.</i>
+            </h2>
+
+            <div class="similarity-list">
+
+                <div>
+                    <span>01</span>
+                    We both went to boarding school.
+                </div>
+
+                <div>
+                    <span>02</span>
+                    We both spent quite a lot of time in Pune.
+                </div>
+
+                <div>
+                    <span>03</span>
+                    We are both chai people.
+                </div>
+
+                <div>
+                    <span>04</span>
+                    We both like spicy food.
+                </div>
+
+                <div>
+                    <span>05</span>
+                    We were both into sports in school.
+                </div>
+
+                <div>
+                    <span>06</span>
+                    We seemed to think in the same way.
+                </div>
+
+            </div>
+
+            <div class="quote-box">
+
+                <p>
+                    “I guessed what you were going to say
+                    more than once.”
+                </p>
+
+                <span>— Jerry</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- IMPORTANT FEELING -->
+
+        <section class="big-feeling reveal">
+
+            <p class="tiny">SOMEWHERE AROUND HERE</p>
+
+            <h2>
                 The first conversation with you
                 was enough for me to know
-                that I never want to stop
-                talking to this person.
-            </blockquote>
+                that I never wanted to stop
+                talking to you.
+            </h2>
+
+        </section>
+
+
+        <!-- PLOT TWIST -->
+
+        <section class="plot-twist reveal">
+
+            <div class="twist-stamp">
+                PLOT<br>
+                TWIST
+            </div>
+
+            <p class="section-label">THE VERY NEXT DAY</p>
+
+            <h2>
+                Wait...
+                <br>
+                you're <i>Gujarati?</i>
+            </h2>
 
             <p>
-                — Jerry
+                The very next day was Ekadashi.
+            </p>
+
+            <p>
+                And while talking about it, I discovered something
+                that I definitely wasn't expecting.
+            </p>
+
+            <p class="handwritten big">
+                You were Gujarati.
+            </p>
+
+            <p>
+                So naturally I asked:
+            </p>
+
+            <div class="dialogue">
+                “If you're a Gujarati then why were you looking
+                for Marwari girls?”
+            </div>
+
+        </section>
+
+
+        <!-- ALMOST GOODBYE -->
+
+        <section class="almost-goodbye reveal">
+
+            <p class="section-label">THE PART I DIDN'T LIKE</p>
+
+            <h2>
+                Almost<br>
+                goodbye.
+            </h2>
+
+            <p>
+                Somehow the conversation moved from that joke
+                into something much more serious.
+            </p>
+
+            <p>
+                We started talking about whether I would be okay
+                with someone from another caste.
+            </p>
+
+            <p>
+                I told you the truth.
+                My family isn't okay with it.
+            </p>
+
+            <div class="goodbye-note">
+
+                <span>YOUR MESSAGE</span>
+
+                <p>
+                    “I guess this means we dont really have a chance.”
+                </p>
+
+            </div>
+
+            <p>
+                And my heart sank.
+            </p>
+
+            <p>
+                Not because I had already decided what we were going to be.
+                We had barely even met.
+            </p>
+
+            <p>
+                But because I didn't want to stop talking to you.
             </p>
 
         </section>
 
 
-        <!-- =========================
-             EKADASHI / PLOT TWIST
-        ========================== -->
+        <!-- DESTINY -->
 
-        <section class="plot-section">
+        <section class="destiny reveal">
 
-            <div class="plot-card">
+            <div class="infinity">∞</div>
 
-                <div class="stamp">
-                    PLOT TWIST
+            <p class="section-label">SO WE DID SOMETHING VERY US</p>
+
+            <h2>
+                We left it<br>
+                to <i>destiny.</i>
+            </h2>
+
+            <p>
+                We decided to keep talking and leave the rest to destiny.
+            </p>
+
+            <p>
+                And somehow, that still feels very us.
+            </p>
+
+            <p>
+                We don't know what the ending is.
+                We don't even know if there is one.
+            </p>
+
+            <p class="handwritten big">
+                We're just choosing to keep turning the pages.
+            </p>
+
+        </section>
+
+
+        <!-- 27 JUNE -->
+
+        <section class="meeting reveal">
+
+            <p class="section-label">27 — 06 — 2026</p>
+
+            <h2>
+                The day<br>
+                you <i>showed up.</i>
+            </h2>
+
+            <div class="location-card">
+
+                <span>📍</span>
+
+                <div>
+                    <strong>Happy Works</strong>
+                    <small>Kolkata</small>
                 </div>
 
-                <p class="eyebrow">
-                    25 JUNE 2026
-                </p>
+            </div>
+
+            <p>
+                I was dying to meet you.
+            </p>
+
+            <p>
+                You don't know this yet, but the only reason
+                I actually left my house that day was because
+                there was a tiny part of me hoping you'd come.
+            </p>
+
+            <p>
+                And then...
+            </p>
+
+            <p class="handwritten huge">
+                you did.
+            </p>
+
+        </section>
+
+
+        <!-- NUTTIES -->
+
+        <section class="nutties reveal">
+
+            <div class="chocolate-card">
+
+                <span class="tiny">THE DETAIL I WILL REMEMBER</span>
 
                 <h2>
-                    Wait...
+                    You brought<br>
+                    <i>Nutties.</i>
                 </h2>
 
-                <h3>
-                    You're Gujarati?!
-                </h3>
-
                 <p>
-                    The very next day was Ekadashi —
-                    a pretty big thing among Marwaris.
+                    My favourite chocolate.
                 </p>
 
-                <p>
-                    We were talking about it when I realised
-                    you were Gujarati.
+                <button onclick="showNutties()">
+                    Why this mattered ♡
+                </button>
+
+                <p id="nutties-message" class="hidden-message">
+                    Because you remembered.
+                    And sometimes the smallest things
+                    end up becoming the things we remember most.
                 </p>
-
-                <div class="dialogue">
-
-                    <div class="dialogue-line">
-                        <span>JERRY:</span>
-                        If you're a Gujarati then why were you
-                        looking for Marwari girls?
-                    </div>
-
-                    <div class="dialogue-line">
-                        <span>AYUSHU:</span>
-                        ...and suddenly we were talking
-                        about caste.
-                    </div>
-
-                </div>
 
             </div>
 
         </section>
 
 
-        <!-- =========================
-             ALMOST GOODBYE
-        ========================== -->
+        <!-- CLASSIFIED MEMORY -->
 
-        <section class="almost-goodbye">
+        <section class="classified reveal">
 
-            <div class="goodbye-paper">
+            <div class="classified-card">
 
-                <p class="eyebrow">
-                    THE ALMOST GOODBYE
-                </p>
+                <div class="lock">🔐</div>
+
+                <p class="tiny">MEMORY SAVED FOR LATER</p>
 
                 <h2>
-                    And then...
+                    Some moments<br>
+                    are too special<br>
+                    to put on the internet yet.
                 </h2>
 
-                <p>
-                    I told you that my family isn't okay
-                    with me being with someone from another caste.
-                </p>
+                <div class="classified-line"></div>
 
                 <p>
-                    And I could see why that put you off.
-                </p>
-
-                <div class="goodbye-message">
-                    “I guess this means we don't really have a chance.”
-                </div>
-
-                <p class="heart-sink">
-                    My heart sank.
+                    27 JUNE 2026
                 </p>
 
                 <p>
-                    Because the one thing I knew by then
-                    was that I didn't want to stop talking to you.
+                    Happy Works, Kolkata
                 </p>
 
-                <p>
-                    So I told you.
-                </p>
+                <span class="status">
+                    STATUS: CLASSIFIED
+                </span>
 
             </div>
 
         </section>
 
 
-        <!-- =========================
-             DESTINY
-        ========================== -->
+        <!-- ENDING -->
 
-        <section class="destiny-section">
+        <section class="ending reveal">
 
-            <div class="stars">
-                ✦ &nbsp; ✧ &nbsp; ✦ &nbsp; ✧ &nbsp; ✦
-            </div>
-
-            <p class="eyebrow">
-                SO WE MADE A DEAL
+            <p class="tiny">
+                BEFORE THERE WAS ANYTHING
             </p>
 
             <h2>
-                Let's just keep talking...
+                There was just<br>
+                a match.
             </h2>
 
-            <p class="destiny-text">
-                ...and leave the rest to destiny.
-            </p>
-
-            <div class="destiny-line"></div>
-
-            <p>
-                And honestly?
-            </p>
-
-            <p>
-                I think that still describes us.
-            </p>
-
-            <p>
-                We fight.
-                We disagree.
-                We make things complicated.
-            </p>
-
-            <p class="handwritten">
-                But we keep coming back.
-            </p>
-
-            <p>
-                Maybe because somewhere inside,
-                we both believe that if destiny has written
-                this for us...
-            </p>
-
-            <h3>
-                it'll happen.
-            </h3>
-
-        </section>
-
-
-        <!-- =========================
-             FIRST MEETING
-        ========================== -->
-
-        <section class="meeting-section">
-
-            <div class="section-number">
-                05
-            </div>
-
-            <p class="eyebrow">
-                27 JUNE 2026
-            </p>
-
-            <h2>
-                And then<br>
-                <em>you showed up.</em>
-            </h2>
-
-            <p class="meeting-intro">
-                Happy Works · Kolkata
-            </p>
-
-            <!-- PHOTO -->
-
-            <div class="polaroid">
-
-                <div class="photo-frame">
-
-                    <img
-                        src="images/photo-1.jpg"
-                        alt="Our first meeting"
-                        onerror="this.style.display='none'; this.parentElement.classList.add('empty-photo');"
-                    >
-
-                    <span class="photo-placeholder">
-                        ADD YOUR<br>
-                        FIRST MEETING<br>
-                        PHOTO HERE
-                    </span>
-
-                </div>
-
-                <div class="polaroid-caption">
-                    happy works ♡
-                </div>
-
-            </div>
-
-            <div class="meeting-story">
-
-                <p>
-                    I was dying to meet you.
-                </p>
-
-                <p>
-                    You don't know this yet...
-                </p>
-
-                <p class="secret">
-                    but the only reason I left the house that day
-                    was because I was hoping you would come.
-                </p>
-
-                <p>
-                    And you did.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             NUTTIES
-        ========================== -->
-
-        <section class="nutties-section">
-
-            <div class="nutties-wrapper">
-
-                <div class="nutties-text">
-
-                    <p class="eyebrow">
-                        AND THEN YOU DID SOMETHING
-                    </p>
-
-                    <h2>
-                        You brought<br>
-                        <em>Nutties.</em>
-                    </h2>
-
-                    <p>
-                        My favourite chocolate.
-                    </p>
-
-                    <p>
-                        I had already guessed you were going
-                        to come meet me...
-                    </p>
-
-                    <p>
-                        but you showing up with Nutties
-                        somehow made it feel even more special.
-                    </p>
-
-                    <button
-                        class="nutties-button"
-                        onclick="nuttiesMagic()"
-                    >
-                        press for chocolate 🍫
-                    </button>
-
-                </div>
-
-                <div class="chocolate-card" id="chocolateCard">
-
-                    <div class="chocolate-wrapper">
-                        <span>♡</span>
-                        <strong>NUTTIES</strong>
-                        <small>for Jerry</small>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             VIDEO
-        ========================== -->
-
-        <section class="video-section">
-
-            <p class="eyebrow">
-                A LITTLE PIECE OF THAT DAY
-            </p>
-
-            <h2>
-                Some things<br>
-                are better <em>moving.</em>
-            </h2>
-
-            <div class="video-frame">
-
-                <video
-                    controls
-                    playsinline
-                    poster="images/photo-2.jpg"
-                >
-                    <source
-                        src="images/first-meeting.mp4"
-                        type="video/mp4"
-                    >
-
-                    Your browser does not support video.
-                </video>
-
-                <div class="video-placeholder">
-                    ADD YOUR VIDEO HERE
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             EXTRA PHOTO
-        ========================== -->
-
-        <section class="photo-memory-section">
-
-            <div class="photo-stack">
-
-                <div class="small-polaroid one">
-                    <img
-                        src="images/photo-2.jpg"
-                        alt="Aaykhus memory"
-                        onerror="this.style.display='none'; this.parentElement.classList.add('empty-small');"
-                    >
-                    <span>memory no. 01</span>
-                </div>
-
-                <div class="small-polaroid two">
-                    <img
-                        src="images/photo-3.jpg"
-                        alt="Aaykhus memory"
-                        onerror="this.style.display='none'; this.parentElement.classList.add('empty-small');"
-                    >
-                    <span>memory no. 02</span>
-                </div>
-
-            </div>
-
-            <p class="handwritten">
-                and this was only the beginning.
-            </p>
-
-        </section>
-
-
-        <!-- =========================
-             ENDING
-        ========================== -->
-
-        <section class="ending-section">
-
-            <div class="ending-paper">
-
-                <div class="ending-symbol">
-                    ♡
-                </div>
-
-                <p>
-                    Before there was anything.
-                </p>
-
-                <p>
-                    Before we knew what this was.
-                </p>
-
-                <p>
-                    Before we knew if there would even
-                    be a future...
-                </p>
-
-                <div class="ending-divider"></div>
-
-                <h2>
-                    There was just a match.
-                </h2>
+            <div class="ending-text">
 
                 <p>
                     A conversation.
@@ -969,70 +617,44 @@
                     A decision to leave it to destiny.
                 </p>
 
-                <div class="ending-divider"></div>
-
-                <h2>
+                <p>
                     And then...
-                </h2>
-
-                <h1>
-                    you showed up.
-                </h1>
-
-                <p class="final-line">
-                    And I'm really glad you did.
                 </p>
 
-                <div class="signature">
-                    — Jerry 💚
-                </div>
+                <p class="handwritten huge">
+                    you showed up.
+                </p>
 
             </div>
+
+            <p class="final-line">
+                And I'm really glad you did.
+            </p>
+
+            <p class="signature">
+                — Jerry 💚
+            </p>
 
         </section>
 
 
-        <!-- =========================
-             CHAPTER 2 TEASER
-        ========================== -->
+        <!-- NEXT CHAPTER -->
 
         <section class="next-chapter">
 
-            <p class="eyebrow">
-                NEXT IN THE ARCHIVES
+            <p class="tiny">TO BE CONTINUED</p>
+
+            <h2>
+                Chapter 02
+            </h2>
+
+            <p>
+                The Day You Showed Up
             </p>
 
-            <div class="chapter-card">
-
-                <span>
-                    CHAPTER 02
-                </span>
-
-                <h2>
-                    The Day<br>
-                    You Showed Up
-                </h2>
-
-                <p>
-                    Happy Works.
-                    Nutties.
-                    And the first time
-                    Jerry met Tom.
-                </p>
-
-                <div class="coming-soon">
-                    COMING SOON
-                </div>
-
+            <div class="arrow">
+                ↓
             </div>
-
-            <p class="infinity">
-                ∞
-            </p>
-
-            <p class="archive-note">
-                There isn't a final chapter yet.
-            </p>
 
         </section>
 
@@ -1041,22 +663,21 @@
 
         <footer>
 
-            <div class="footer-logo">
-                AAYKHUS
-            </div>
-
             <p>
-                a story still being written.
+                AAYKHUS ARCHIVES
             </p>
 
-            <p class="footer-small">
-                Jerry ♡ Tom
-            </p>
+            <span>
+                A story still being written.
+            </span>
+
+            <div>
+                ∞
+            </div>
 
         </footer>
 
     </main>
-
 
     <script src="script.js"></script>
 
