@@ -1,71 +1,1182 @@
-/* =========================================
-   AAYKHUS ARCHIVES — CHAPTER 02
-   Small interactions only.
-========================================= */
+:root {
+  --green: #193f32;
+  --dark-green: #102d25;
+  --cream: #f4efdf;
+  --paper: #fffaf0;
+  --yellow: #e9d68c;
+  --pink: #e8b9b0;
+  --brown: #705443;
+  --ink: #29251f;
+  --muted: #777064;
+}
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* Fade sections into view */
+html {
+  scroll-behavior: smooth;
+}
 
-const sections = document.querySelectorAll("section");
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Playfair Display", serif;
+  overflow-x: hidden;
+}
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  {
-    threshold: 0.12
-  }
-);
+section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
 
-sections.forEach((section) => {
-  observer.observe(section);
-});
+p {
+  line-height: 1.8;
+}
 
-
-/* Make the 7:01 moment feel slightly alive */
-
-const hugeTime = document.querySelector(".huge-time");
-
-if (hugeTime) {
-  window.addEventListener("scroll", () => {
-
-    const rect = hugeTime.getBoundingClientRect();
-
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-
-      const distance =
-        (window.innerHeight / 2 - rect.top) * 0.015;
-
-      hugeTime.style.transform =
-        `translateY(${distance}px)`;
-
-    }
-  });
+.small-heading,
+.tiny-label,
+.paper-label,
+.timestamp,
+.later-label,
+.end-label {
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
 }
 
 
-/* Tiny "memory saved" interaction at the end */
+/* =========================
+   INTRO
+========================= */
 
-const endSection = document.querySelector(".chapter-end");
+.intro {
+  min-height: 100vh;
+  background: var(--green);
+  color: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
 
-if (endSection) {
+.intro .tiny-label {
+  position: absolute;
+  top: 35px;
+  font-size: 10px;
+  opacity: .7;
+}
 
-  endSection.addEventListener("click", () => {
+.intro h1 {
+  font-family: "DM Mono", monospace;
+  font-size: clamp(65px, 16vw, 180px);
+  line-height: .75;
+  font-weight: 400;
+  letter-spacing: -8px;
+}
 
-    const symbol = endSection.querySelector(".end-symbol");
+.intro h1 span {
+  font-size: .75em;
+}
 
-    if (symbol) {
-      symbol.textContent = "♡";
+.chapter-date {
+  font-family: "DM Mono", monospace;
+  margin-top: 35px;
+  font-size: 12px;
+  letter-spacing: 4px;
+}
 
-      setTimeout(() => {
-        symbol.textContent = "∞";
-      }, 900);
-    }
+.intro-title {
+  font-family: "Caveat", cursive;
+  font-size: clamp(35px, 7vw, 65px);
+  line-height: .95;
+  margin-top: 45px;
+  transform: rotate(-2deg);
+}
 
-  });
+.scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  opacity: .6;
+}
 
+
+/* =========================
+   FLOATING NOTES
+========================= */
+
+.floating-note {
+  position: fixed;
+  z-index: 20;
+  font-family: "Caveat", cursive;
+  font-size: 18px;
+  pointer-events: none;
+  opacity: .65;
+}
+
+.note-one {
+  top: 20%;
+  right: 18px;
+  transform: rotate(8deg);
+}
+
+.note-two {
+  bottom: 15%;
+  left: 15px;
+  transform: rotate(-8deg);
+  font-size: 15px;
+}
+
+
+/* =========================
+   OPENING
+========================= */
+
+.paper-section {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 30px,
+      rgba(80,60,40,.035) 31px
+    ),
+    var(--cream);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 25px;
+}
+
+.paper {
+  width: min(750px, 90%);
+  background: var(--paper);
+  padding: clamp(40px, 8vw, 90px);
+  box-shadow: 8px 12px 35px rgba(40,30,20,.1);
+  transform: rotate(-1deg);
+}
+
+.paper-label {
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.paper h2 {
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.paper h2 em {
+  color: var(--green);
+}
+
+.paper p {
+  margin-top: 35px;
+  font-size: 17px;
+}
+
+.handwritten {
+  font-family: "Caveat", cursive;
+  font-size: 23px;
+  margin-top: 55px;
+  color: var(--brown);
+  transform: rotate(-2deg);
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline-section {
+  background: var(--paper);
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+  padding: 80px 10%;
+}
+
+.timeline-label {
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.timeline-content {
+  max-width: 700px;
+}
+
+.timeline-content h2 {
+  font-size: clamp(55px, 9vw, 100px);
+  font-weight: 400;
+  margin: 20px 0;
+}
+
+.timeline-content p {
+  max-width: 600px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.side-note {
+  margin-top: 45px;
+  padding: 20px;
+  border-left: 2px solid var(--pink);
+  font-family: "Caveat", cursive;
+  font-size: 23px;
+}
+
+.side-note span {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+/* =========================
+   SECRET HOPE
+========================= */
+
+.hope-section {
+  background: var(--pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.thought-card {
+  background: var(--paper);
+  padding: clamp(45px, 8vw, 90px);
+  width: min(700px, 90%);
+  box-shadow: 12px 18px 0 rgba(25,63,50,.12);
+  transform: rotate(2deg);
+}
+
+.scribble {
+  font-family: "Caveat", cursive;
+  font-size: 25px;
+  color: var(--brown);
+  margin-bottom: 20px;
+}
+
+.thought-card h2 {
+  font-size: clamp(42px, 7vw, 75px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.thought-card p {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.tiny-heart {
+  margin-top: 30px;
+  font-size: 35px;
+  color: var(--green);
+}
+
+
+/* =========================
+   CHOCOLATE
+========================= */
+
+.chocolate-section {
+  background: var(--cream);
+  min-height: 100vh;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timestamp {
+  color: var(--muted);
+  margin-bottom: 45px;
+}
+
+.chat-bubble {
+  max-width: 450px;
+  padding: 20px 28px;
+  border-radius: 5px;
+  font-family: "DM Mono", monospace;
+  font-size: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+.chat-bubble.him {
+  background: var(--green);
+  color: white;
+  align-self: center;
+}
+
+.reaction {
+  margin-top: 55px;
+  text-align: center;
+  font-family: "Caveat", cursive;
+  font-size: 35px;
+}
+
+.reaction span {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 30px;
+  color: var(--muted);
+}
+
+.reaction strong {
+  font-size: 55px;
+  color: var(--green);
+}
+
+.chocolate-thought {
+  font-family: "Caveat", cursive;
+  font-size: clamp(35px, 7vw, 65px);
+  margin-top: 30px;
+  transform: rotate(-2deg);
+}
+
+.anxiety {
+  max-width: 520px;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 16px;
+  color: var(--brown);
+}
+
+.anxiety em {
+  font-family: "Caveat", cursive;
+  font-size: 28px;
+}
+
+
+/* =========================
+   CALL
+========================= */
+
+.call-section {
+  background: var(--dark-green);
+  color: var(--cream);
+  min-height: 110vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.huge-time {
+  font-family: "DM Mono", monospace;
+  font-size: clamp(80px, 18vw, 200px);
+  letter-spacing: -8px;
+  line-height: .8;
+}
+
+.time-label {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 5px;
+  margin-top: 15px;
+  opacity: .6;
+}
+
+.phone-card {
+  margin-top: 80px;
+  width: min(420px, 90%);
+  background: #f7f3e9;
+  color: var(--ink);
+  padding: 20px;
+  box-shadow: 15px 20px 0 rgba(0,0,0,.15);
+}
+
+.phone-top {
+  display: flex;
+  justify-content: space-between;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  opacity: .5;
+  padding-bottom: 30px;
+}
+
+.phone-message {
+  background: #e6e0d1;
+  padding: 16px 20px;
+  width: fit-content;
+  border-radius: 18px 18px 18px 4px;
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+}
+
+.reply {
+  margin-left: auto;
+  margin-top: 12px;
+  background: var(--green);
+  color: white;
+  padding: 16px 20px;
+  width: fit-content;
+  border-radius: 18px 18px 4px 18px;
+  font-family: "Caveat", cursive;
+  font-size: 20px;
+}
+
+.call-caption {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.call-caption span {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.call-caption p {
+  font-family: "Caveat", cursive;
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+
+/* =========================
+   OUTSIDE
+========================= */
+
+.outside-section {
+  background: var(--yellow);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.outside-inner {
+  text-align: center;
+  max-width: 800px;
+}
+
+.call-icon {
+  font-size: 50px;
+  margin-bottom: 40px;
+}
+
+.call-line {
+  font-family: "Caveat", cursive;
+  font-size: clamp(45px, 9vw, 85px);
+  transform: rotate(-3deg);
+}
+
+.small-line {
+  font-family: "DM Mono", monospace;
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.dramatic-text {
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: clamp(40px, 8vw, 75px);
+  color: var(--green);
+  margin-top: 60px;
+  transform: rotate(2deg);
+}
+
+.dramatic-text.second {
+  margin-top: 0;
+  transform: rotate(-2deg);
+}
+
+.answer {
+  margin-top: 70px;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 28px;
+}
+
+
+/* =========================
+   FIRST MOMENT
+========================= */
+
+.moment-section {
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+.moment-card {
+  width: min(750px, 92%);
+  background: var(--paper);
+  padding: clamp(40px, 8vw, 85px);
+  position: relative;
+  box-shadow: 0 20px 45px rgba(0,0,0,.1);
+  transform: rotate(-1deg);
+}
+
+.moment-label {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 2px;
+}
+
+.moment-card h2 {
+  font-size: 90px;
+  font-weight: 400;
+  margin-top: 55px;
+}
+
+.moment-card h3 {
+  font-size: clamp(38px, 7vw, 70px);
+  line-height: 1;
+  font-weight: 400;
+}
+
+.funny-note {
+  margin-top: 40px;
+  font-family: "Caveat", cursive;
+  font-size: 25px;
+  color: var(--brown);
+  transform: rotate(2deg);
+}
+
+.hug {
+  margin-top: 60px;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--muted);
+}
+
+.nutties {
+  margin-top: 60px;
+  padding: 25px;
+  background: var(--yellow);
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  transform: rotate(2deg);
+}
+
+.nutties span,
+.nutties small {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+}
+
+.nutties strong {
+  font-family: "Caveat", cursive;
+  font-size: 40px;
+}
+
+
+/* =========================
+   BAK BAK
+========================= */
+
+.bakbak-section {
+  background: var(--green);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+}
+
+.bakbak-background {
+  position: absolute;
+  font-family: "Caveat", cursive;
+  font-size: 100px;
+  line-height: .7;
+  opacity: .035;
+  transform: rotate(-15deg);
+  width: 130%;
+  text-align: center;
+}
+
+.bakbak-content {
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.bakbak-content .small-heading {
+  opacity: .6;
+}
+
+.bakbak-content h2 {
+  font-size: clamp(65px, 12vw, 130px);
+  font-weight: 400;
+  margin-top: 20px;
+}
+
+.bakbak-big {
+  font-family: "Caveat", cursive;
+  color: var(--yellow);
+  font-size: clamp(50px, 10vw, 100px);
+  line-height: .75;
+  transform: rotate(-3deg);
+  margin: 40px 0;
+}
+
+.bakbak-content p {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.quiet-note {
+  margin: 50px auto;
+  max-width: 500px;
+  border: 1px dashed rgba(244,239,223,.35);
+  padding: 25px;
+  font-family: "Caveat", cursive;
+  font-size: 25px;
+}
+
+
+/* =========================
+   8 PM
+========================= */
+
+.eight-section {
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.clock {
+  font-family: "DM Mono", monospace;
+  font-size: clamp(50px, 10vw, 100px);
+  color: var(--green);
+}
+
+.eight-section h2 {
+  font-size: clamp(35px, 6vw, 65px);
+  font-weight: 400;
+  margin-top: 40px;
+}
+
+.eight-section p {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.car-note {
+  margin-top: 60px;
+  font-family: "Caveat", cursive;
+  font-size: 28px;
+  transform: rotate(-2deg);
+}
+
+
+/* =========================
+   CAR
+========================= */
+
+.car-section {
+  background: #24211c;
+  color: var(--cream);
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.car-content {
+  max-width: 750px;
+}
+
+.car-content .small-heading {
+  opacity: .5;
+}
+
+.car-content h2 {
+  font-size: clamp(60px, 10vw, 110px);
+  font-weight: 400;
+  line-height: .85;
+  margin: 30px 0 50px;
+}
+
+.car-content p {
+  font-size: 18px;
+  max-width: 600px;
+}
+
+.subtle-scene {
+  border-left: 1px solid rgba(244,239,223,.25);
+  margin: 70px 0;
+  padding-left: 30px;
+}
+
+.scene-line {
+  font-family: "Caveat", cursive;
+  font-size: 27px;
+  margin: 13px 0;
+}
+
+.subtle-detail {
+  font-size: 21px !important;
+}
+
+.burn-detail {
+  font-family: "Caveat", cursive;
+  font-size: 24px !important;
+  color: var(--yellow);
+  margin-top: 45px;
+}
+
+
+/* =========================
+   KINDNESS
+========================= */
+
+.kindness-section {
+  background: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+.kindness-card {
+  width: min(950px, 95%);
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.receipt {
+  background: #f7f2df;
+  padding: 35px 25px;
+  box-shadow: 5px 10px 20px rgba(0,0,0,.12);
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  line-height: 2;
+  transform: rotate(-4deg);
+}
+
+.receipt .line {
+  border-top: 1px dashed #888;
+  margin: 12px 0;
+}
+
+.receipt .total {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.kindness-copy h2 {
+  font-size: clamp(45px, 7vw, 75px);
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px 0 30px;
+}
+
+.kindness-copy p {
+  margin-bottom: 20px;
+  max-width: 550px;
+}
+
+.highlight {
+  margin-top: 45px;
+  font-family: "Caveat", cursive;
+  font-size: 30px;
+}
+
+.highlight strong {
+  font-size: 38px;
+  color: var(--green);
+}
+
+
+/* =========================
+   TINY MEMORY
+========================= */
+
+.tiny-memory {
+  background: var(--cream);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.tiny-memory-inner {
+  max-width: 600px;
+  padding: 50px 20px;
+}
+
+.tiny-memory h2 {
+  font-size: clamp(45px, 8vw, 80px);
+  font-weight: 400;
+  margin-top: 30px;
+}
+
+.versus {
+  margin: 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  font-family: "DM Mono", monospace;
+}
+
+.versus span {
+  border: 1px solid var(--green);
+  padding: 15px 20px;
+}
+
+.versus b {
+  font-size: 10px;
+}
+
+.tiny-note {
+  font-family: "Caveat", cursive;
+  font-size: 24px;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.home-section {
+  background: var(--pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.home-time {
+  position: absolute;
+  top: 40px;
+  font-family: "DM Mono", monospace;
+  letter-spacing: 4px;
+  font-size: 11px;
+}
+
+.home-copy {
+  max-width: 750px;
+}
+
+.home-copy h2 {
+  font-size: clamp(50px, 9vw, 95px);
+  line-height: .9;
+  font-weight: 400;
+}
+
+.home-copy p {
+  margin: 35px auto 0;
+  max-width: 550px;
+  font-size: 18px;
+}
+
+.thought-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 45px;
+}
+
+.thought-list span {
+  background: var(--paper);
+  padding: 10px 18px;
+  font-family: "Caveat", cursive;
+  font-size: 24px;
+}
+
+.thought-list span:nth-child(1) {
+  transform: rotate(-3deg);
+}
+
+.thought-list span:nth-child(2) {
+  transform: rotate(2deg);
+}
+
+.thought-list span:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.thought-list span:nth-child(4) {
+  transform: rotate(3deg);
+}
+
+
+/* =========================
+   GHOST
+========================= */
+
+.ghost-section {
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.ghost-paper {
+  background: var(--paper);
+  width: min(650px, 90%);
+  min-height: 500px;
+  padding: 70px 45px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.08);
+  position: relative;
+  transform: rotate(1deg);
+}
+
+.scribbled-corner {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 2px;
+}
+
+.quote {
+  font-family: "Caveat", cursive;
+  font-size: clamp(55px, 10vw, 90px);
+  margin-top: 100px;
+  color: var(--green);
+  transform: rotate(-3deg);
+}
+
+.my-answer {
+  font-family: "Caveat", cursive;
+  font-size: 32px;
+  margin-top: 35px;
+  margin-left: 80px;
+  transform: rotate(2deg);
+}
+
+.goodbye {
+  position: absolute;
+  bottom: 35px;
+  right: 40px;
+  font-family: "Caveat", cursive;
+  font-size: 25px;
+}
+
+
+/* =========================
+   LATER
+========================= */
+
+.later-section {
+  background: var(--green);
+  color: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+.later-label {
+  opacity: .5;
+  margin-bottom: 60px;
+}
+
+.text-message {
+  width: min(500px, 90%);
+  background: #f5f0e5;
+  color: var(--ink);
+  padding: 25px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.message-meta {
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  opacity: .5;
+  margin-bottom: 12px;
+}
+
+.message-text {
+  font-family: "Caveat", cursive;
+  font-size: 28px;
+}
+
+.reply-message {
+  background: var(--yellow);
+  margin-left: 100px;
+}
+
+.later-caption {
+  font-family: "Caveat", cursive;
+  text-align: center;
+  font-size: 38px;
+  margin-top: 70px;
+}
+
+
+/* =========================
+   REFLECTION
+========================= */
+
+.reflection-section {
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 25px;
+  text-align: center;
+}
+
+.reflection {
+  max-width: 800px;
+}
+
+.reflection h2 {
+  font-size: clamp(50px, 9vw, 90px);
+  font-weight: 400;
+  margin: 30px 0;
+}
+
+.reflection > p {
+  font-size: 18px;
+  max-width: 650px;
+  margin: 25px auto;
+}
+
+.strong-reflection {
+  font-size: clamp(25px, 4vw, 38px) !important;
+  line-height: 1.4 !important;
+  color: var(--green);
+}
+
+.line-divider {
+  width: 100px;
+  border-top: 1px solid var(--green);
+  margin: 60px auto;
+}
+
+.final-line {
+  font-family: "Caveat", cursive;
+  font-size: clamp(45px, 8vw, 75px) !important;
+  transform: rotate(-2deg);
+  color: var(--green);
+}
+
+
+/* =========================
+   END
+========================= */
+
+.chapter-end {
+  min-height: 85vh;
+  background: var(--dark-green);
+  color: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.end-symbol {
+  font-family: "Playfair Display", serif;
+  font-size: 100px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.end-label {
+  opacity: .5;
+}
+
+.chapter-end h2 {
+  font-family: "DM Mono", monospace;
+  font-size: clamp(25px, 5vw, 45px);
+  font-weight: 400;
+  line-height: 1.3;
+  margin-top: 30px;
+}
+
+.next {
+  font-family: "Caveat", cursive;
+  font-size: 30px;
+  margin-top: 35px;
+  color: var(--yellow);
+}
+
+.page-number {
+  position: absolute;
+  bottom: 30px;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  opacity: .4;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .timeline-section {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 80px 30px;
+  }
+
+  .timeline-content h2 {
+    font-size: 60px;
+  }
+
+  .kindness-card {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .receipt {
+    width: 75%;
+    margin: auto;
+  }
+
+  .reply-message {
+    margin-left: 30px;
+  }
+
+  .floating-note {
+    display: none;
+  }
+
+  .paper {
+    width: 95%;
+  }
+
+  .moment-card {
+    width: 95%;
+  }
+
+  .quote {
+    margin-top: 70px;
+  }
+
+  .my-answer {
+    margin-left: 20px;
+  }
 }
